@@ -1,32 +1,36 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Card from '../components/card.jsx';
+import CelestialBody from '../components/CelestialBody.jsx';
 import ThemeContext from '../contexts/ThemeContext.js';
+import {
+  LIGHT_MODE_COLORS,
+  DARK_MODE_COLORS,
+  PRIMARY_TITLES,
+  SECONDARY_TITLES,
+} from '../consts.js';
 
-const LIGHT_MODE_COLORS = {
-  backgroundColor: '#ffffff',
-  foregroundColor: '#000000',
-};
+const pickPrimaryTitle = () => {
+  const index = Math.floor(Math.random() * PRIMARY_TITLES.length);
+  return PRIMARY_TITLES[index];
+}
 
-const DARK_MODE_COLORS = {
-  backgroundColor: '#000000',
-  foregroundColor: '#ffffff',
-};
-
-const defaultTheme = {
-  backgroundColor: LIGHT_MODE_COLORS.backgroundColor,
-  foregroundColor: LIGHT_MODE_COLORS.foregroundColor,
-};
+const pickSecondaryTitle = () => {
+  const index = Math.floor(Math.random() * SECONDARY_TITLES.length);
+  return SECONDARY_TITLES[index];
+}
 
 const Home = () => {
-  const [ theme, setTheme ] = useState(defaultTheme);
+  const [ theme, setTheme ] = useState(LIGHT_MODE_COLORS);
+  const [primaryTitle, setPrimaryTitle] = useState(pickPrimaryTitle());
+  const [secondaryTitle, setSecondaryTitle] = useState(pickSecondaryTitle());
 
   const getTheme = () => theme;
 
   const themeContext = {
     getTheme,
     setTheme,
-  }
+  };
 
   const { backgroundColor, foregroundColor } = getTheme();
   const inDarkTheme = backgroundColor === DARK_MODE_COLORS.backgroundColor;
@@ -34,7 +38,7 @@ const Home = () => {
   return (
     <ThemeContext.Provider value={themeContext}>
       <Head>
-        <title>Dave Cole | Software engineer | working to make things right</title>
+        <title>Dave Cole | Software engineer</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif|Roboto+Slab&display=swap" rel="stylesheet"/>
       </Head>
@@ -43,14 +47,15 @@ const Home = () => {
           Dave Cole
         </h1>
         <button
+          className='theme_button'
           onClick={() => {
             inDarkTheme ? setTheme(LIGHT_MODE_COLORS) : setTheme(DARK_MODE_COLORS);
           }}
-        >
-          {inDarkTheme ? 'lighten' : 'darken'}
+          >
+          <CelestialBody type={inDarkTheme ? 'moon' : 'sun'} />
         </button>
         <h2>
-          Software engineer and self-aware amalgamation of stardust
+          {primaryTitle} and {secondaryTitle}
         </h2>
         <p>
           contact: <a href="mailto:davee@djc.lol" target="_blank">dave@djc.lol</a>
@@ -136,6 +141,13 @@ const Home = () => {
           display: flex;
           flex-wrap: wrap;
           padding-top: 40px;
+          perspective: 1000px;
+        }
+
+        .theme_button {
+          padding: 0;
+          border: none;
+          background: transparent;
         }
       `}</style>
     </ThemeContext.Provider>
