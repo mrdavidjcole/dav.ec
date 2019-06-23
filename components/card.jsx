@@ -1,5 +1,11 @@
+import React, { useContext } from 'react';
+import ThemeContext from '../contexts/ThemeContext.js';
+
 export default (props) => {
-  const flexBasis = '33.33%'
+  const { getTheme } = useContext(ThemeContext)
+
+  const { backgroundColor, foregroundColor } = getTheme();
+
   return (
     <>
       <div className="button-flex-wrapper">
@@ -13,19 +19,22 @@ export default (props) => {
       </div>
       <style jsx>{`
         button {
-          background-color: #ffffff;
+          background-color: ${backgroundColor};
           border-radius: 5px;
           border-width: 0px;
           box-shadow: 0px 5px 10px rgba(0, 0, 0, .2);
+          color: ${foregroundColor};
           height: 100%;
           width: 100%;
           position: relative;
-          transition: box-shadow 200ms ease;
+          transition: box-shadow 200ms ease, transform 200ms ease;
+          transform: scale(1);
           z-index: 0;
         }
 
         button:hover {
           box-shadow: 0px 20px 40px rgba(0, 0, 0, .2);
+          transform: scale(1.05);
           z-index: 1;
         }
 

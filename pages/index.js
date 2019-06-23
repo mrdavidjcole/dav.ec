@@ -1,9 +1,38 @@
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Card from '../components/card.jsx';
+import ThemeContext from '../contexts/ThemeContext.js';
 
-const Home = (props) => {
+const LIGHT_MODE_COLORS = {
+  backgroundColor: '#ffffff',
+  foregroundColor: '#000000',
+};
+
+const DARK_MODE_COLORS = {
+  backgroundColor: '#000000',
+  foregroundColor: '#ffffff',
+};
+
+const defaultTheme = {
+  backgroundColor: LIGHT_MODE_COLORS.backgroundColor,
+  foregroundColor: LIGHT_MODE_COLORS.foregroundColor,
+};
+
+const Home = () => {
+  const [ theme, setTheme ] = useState(defaultTheme);
+
+  const getTheme = () => theme;
+
+  const themeContext = {
+    getTheme,
+    setTheme,
+  }
+
+  const { backgroundColor, foregroundColor } = getTheme();
+  const inDarkTheme = backgroundColor === DARK_MODE_COLORS.backgroundColor;
+
   return (
-    <>
+    <ThemeContext.Provider value={themeContext}>
       <Head>
         <title>Dave Cole | Software engineer | working to make things right</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -13,6 +42,13 @@ const Home = (props) => {
         <h1>
           Dave Cole
         </h1>
+        <button
+          onClick={() => {
+            inDarkTheme ? setTheme(LIGHT_MODE_COLORS) : setTheme(DARK_MODE_COLORS);
+          }}
+        >
+          {inDarkTheme ? 'darken' : 'lighten'}
+        </button>
         <h2>
           Software engineer and self-aware amalgamation of stardust
         </h2>
@@ -102,7 +138,7 @@ const Home = (props) => {
           padding-top: 40px;
         }
       `}</style>
-    </>
+    </ThemeContext.Provider>
   );
 }
 
