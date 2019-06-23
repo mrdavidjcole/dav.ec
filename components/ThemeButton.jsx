@@ -14,10 +14,10 @@ export default (props) => {
     <>
     <button
       onClick={() => {
-        themeName === 'dark' ? setTheme(LIGHT_THEME) : setTheme(DARK_THEME);
+        themeName === DARK_THEME.themeName ? setTheme(LIGHT_THEME) : setTheme(DARK_THEME);
       }}
       >
-        <CelestialBody type={themeName === 'dark' ? 'moon' : 'sun'} />
+        <CelestialBody type={themeName === DARK_THEME.themeName ? 'moon' : 'sun'} />
       </button>
       <style jsx>{`
         button {

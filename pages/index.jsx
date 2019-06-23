@@ -20,8 +20,20 @@ const Home = () => {
   };
 
   const { backgroundColor, foregroundColor, themeName } = getTheme();
+
+  const onKeyUp = (event) => {
+    const { keyCode } = event;
+    if (keyCode == 84) {
+      themeName === DARK_THEME.themeName ? setTheme(LIGHT_THEME) : setTheme(DARK_THEME);
+    }
+  }
+
   useEffect(() => {
     document.body.className = themeName;
+    window.addEventListener('keyup', onKeyUp);
+    return () => {
+      window.removeEventListener('keyup', onKeyUp);
+    }
   });
 
   return (

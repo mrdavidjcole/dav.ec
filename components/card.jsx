@@ -4,7 +4,7 @@ import { THEME_TRANSITION_DURATION } from '../consts.js';
 
 export default (props) => {
   const { getTheme } = useContext(ThemeContext)
-  const { backgroundColor, foregroundColor, themeName } = getTheme();
+  const { backgroundColor, foregroundColor, themeName, mildShadowColor, strongShadowColor } = getTheme();
 
   return (
     <>
@@ -22,7 +22,7 @@ export default (props) => {
           background-color: ${backgroundColor};
           border-radius: 6px;
           border: 1px solid ${foregroundColor};
-          box-shadow: 0px 6px 12px rgba(0, 0, 0, .05);
+          box-shadow: 0px 6px 12px ${mildShadowColor};
           color: ${foregroundColor};
           height: 100%;
           position: relative;
@@ -33,7 +33,7 @@ export default (props) => {
         }
 
         button:hover {
-          box-shadow: 0px 20px 40px rgba(0, 0, 0, .25);
+          box-shadow: 0px 20px 40px ${strongShadowColor};
           transform: translateZ(200px);
           z-index: 1;
         }
