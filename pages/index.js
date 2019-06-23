@@ -47,7 +47,7 @@ const Home = () => {
             inDarkTheme ? setTheme(LIGHT_MODE_COLORS) : setTheme(DARK_MODE_COLORS);
           }}
         >
-          {inDarkTheme ? 'darken' : 'lighten'}
+          {inDarkTheme ? 'lighten' : 'darken'}
         </button>
         <h2>
           Software engineer and self-aware amalgamation of stardust
