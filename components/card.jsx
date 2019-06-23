@@ -4,7 +4,7 @@ import { THEME_TRANSITION_DURATION } from '../consts.js';
 
 export default (props) => {
   const { getTheme } = useContext(ThemeContext)
-  const { backgroundColor, foregroundColor } = getTheme();
+  const { backgroundColor, foregroundColor, themeName } = getTheme();
 
   return (
     <>
@@ -26,7 +26,7 @@ export default (props) => {
           color: ${foregroundColor};
           height: 100%;
           position: relative;
-          transition: box-shadow 200ms ease, transform 200ms ease, background-color ${THEME_TRANSITION_DURATION}ms ease-out;
+          transition: box-shadow 200ms ease, transform 200ms ease, background-color ${THEME_TRANSITION_DURATION}ms ease-out, color ${THEME_TRANSITION_DURATION}ms ease-out;
           width: 100%;
           will-change: transform;
           z-index: 0;

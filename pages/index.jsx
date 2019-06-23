@@ -1,30 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import Card from '../components/card.jsx';
-import CelestialBody from '../components/CelestialBody.jsx';
+import Card from '../components/card.jsx'
+import RandomSubheading from '../components/RandomSubheading.jsx';
+import ThemeButton from '../components/ThemeButton.jsx';
 import ThemeContext from '../contexts/ThemeContext.js';
 import {
-  LIGHT_MODE_COLORS,
-  DARK_MODE_COLORS,
-  PRIMARY_TITLES,
-  SECONDARY_TITLES,
+  LIGHT_THEME,
+  DARK_THEME,
+  THEME_TRANSITION_DURATION,
 } from '../consts.js';
 
-const pickPrimaryTitle = () => {
-  const index = Math.floor(Math.random() * PRIMARY_TITLES.length);
-  return PRIMARY_TITLES[index];
-}
-
-const pickSecondaryTitle = () => {
-  const index = Math.floor(Math.random() * SECONDARY_TITLES.length);
-  return SECONDARY_TITLES[index];
-}
-
 const Home = () => {
-  const [ theme, setTheme ] = useState(LIGHT_MODE_COLORS);
-  const [primaryTitle, setPrimaryTitle] = useState(pickPrimaryTitle());
-  const [secondaryTitle, setSecondaryTitle] = useState(pickSecondaryTitle());
-
+  const [ theme, setTheme ] = useState(LIGHT_THEME);
   const getTheme = () => theme;
 
   const themeContext = {
@@ -32,8 +19,10 @@ const Home = () => {
     setTheme,
   };
 
-  const { backgroundColor, foregroundColor } = getTheme();
-  const inDarkTheme = backgroundColor === DARK_MODE_COLORS.backgroundColor;
+  const { backgroundColor, foregroundColor, themeName } = getTheme();
+  useEffect(() => {
+    document.body.className = themeName;
+  });
 
   return (
     <ThemeContext.Provider value={themeContext}>
@@ -46,20 +35,13 @@ const Home = () => {
         <h1>
           Dave Cole
         </h1>
-        <button
-          className='theme_button'
-          onClick={() => {
-            inDarkTheme ? setTheme(LIGHT_MODE_COLORS) : setTheme(DARK_MODE_COLORS);
-          }}
-          >
-          <CelestialBody type={inDarkTheme ? 'moon' : 'sun'} />
-        </button>
-        <h2>
-          {primaryTitle} and {secondaryTitle}
-        </h2>
+        <ThemeButton />
+        <RandomSubheading />
         <p>
-          contact: <a href="mailto:davee@djc.lol" target="_blank">dave@djc.lol</a>
+          contact: <a className={themeName} href="mailto:davee@djc.lol" target="_blank">dave@djc.lol</a>
         </p>
+      </header>
+      <main>
         <div className='cards'>
           <Card>
             hi I am card
@@ -98,18 +80,29 @@ const Home = () => {
             hi I am card
           </Card>
         </div>
-      </header>
+      </main>
       <style global jsx>{`
         * {
           box-sizing: border-box;
         }
         body {
-          background: #ffffff;
-          color: #000000;
           font-family: 'Roboto Slab', serif;
           padding: 40px;
+          transition: background-color ${THEME_TRANSITION_DURATION}ms ease-out, color ${THEME_TRANSITION_DURATION}ms ease-out;
         }
 
+        body.dark {
+          background: ${DARK_THEME.backgroundColor};
+          color: ${DARK_THEME.foregroundColor};
+        }
+
+        body.light {
+          background: ${LIGHT_THEME.backgroundColor};
+          color: ${LIGHT_THEME.foregroundColor};
+        }
+      `}</style>
+
+      <style jsx>{`
         h1 {
           font-size: 3em;
           font-family: 'IBM Plex Serif', serif;
@@ -121,20 +114,35 @@ const Home = () => {
         }
 
         a {
-          color: #303030;
           text-decoration: none;
           border-bottom: 1px solid transparent;
-          transition: border-bottom 120ms ease;
+          transition: border-bottom ${THEME_TRANSITION_DURATION}ms ease-out, color ${THEME_TRANSITION_DURATION}ms ease-out;
         }
 
-        a:focus {
+        a.light {
+          color: ${LIGHT_THEME.foregroundColor};
+        }
+
+        a.dark {
+          color: ${DARK_THEME.foregroundColor};
+        }
+
+        a.light:focus {
           outline: none;
-          box-shadow: 0 0 0 1px #ffffff inset;
-          border-bottom: 1px solid #000000;
+          border-bottom: 1px solid ${LIGHT_THEME.foregroundColor};
         }
 
-        a:hover {
-          border-bottom: 1px solid #000000;
+        a.dark:focus {
+          outline: none;
+          border-bottom: 1px solid ${DARK_THEME.foregroundColor};
+        }
+
+        a.light:hover {
+          border-bottom: 1px solid ${LIGHT_THEME.foregroundColor};
+        }
+
+        a.dark:hover {
+          border-bottom: 1px solid ${DARK_THEME.foregroundColor};
         }
 
         .cards {
@@ -142,12 +150,7 @@ const Home = () => {
           flex-wrap: wrap;
           padding-top: 40px;
           perspective: 1000px;
-        }
-
-        .theme_button {
-          padding: 0;
-          border: none;
-          background: transparent;
+          margin: 0 -6px;
         }
       `}</style>
     </ThemeContext.Provider>

@@ -5,7 +5,7 @@ import { THEME_TRANSITION_DURATION } from '../consts.js';
 export default (props) => {
   const {type} = props;
   const { getTheme } = useContext(ThemeContext);
-  const { backgroundColor, foregroundColor } = getTheme();
+  const { backgroundColor, foregroundColor, themeName } = getTheme();
 
   return (
     <>
@@ -19,7 +19,7 @@ export default (props) => {
           align-items: center;
           background-color: ${backgroundColor};
           border-radius: 6px;
-          border: ${type === 'sun' ? `1px solid ${foregroundColor}` : ''};
+          border: 1px solid ${foregroundColor};
           color: ${foregroundColor};
           display: flex;
           height: 50px;
