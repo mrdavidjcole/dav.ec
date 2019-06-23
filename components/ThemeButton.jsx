@@ -8,7 +8,7 @@ import {
 
 export default (props) => {
   const { getTheme, setTheme } = useContext(ThemeContext);
-  const { themeName } = getTheme();
+  const { themeName, foregroundColor } = getTheme();
 
   return (
     <>
@@ -21,9 +21,15 @@ export default (props) => {
       </button>
       <style jsx>{`
         button {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          border: 1px solid ${foregroundColor};
+          border-radius: 6px;
           padding: 0;
-          border: none;
           background: transparent;
+          width: 50px;
+          height: 50px;
         }
       `}</style>
     </>

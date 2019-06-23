@@ -8,7 +8,7 @@ import {
 
 export default (props) => {
   const { getTheme } = useContext(ThemeContext);
-  const { themeName } = getTheme();
+  const { themeName, foregroundColor } = getTheme();
 
   const PRIMARY_TITLES = [
     'Software engineer',
@@ -36,21 +36,45 @@ export default (props) => {
 
   const [primaryTitle, setPrimaryTitle] = useState(pickPrimaryTitle());
   const [secondaryTitle, setSecondaryTitle] = useState(pickSecondaryTitle());
+  const [shouldRotateAvatar, setShouldRotateAvatar] = useState(false);
 
   return (
-    <>
-      <h2>
-        {primaryTitle} and {secondaryTitle}
-      </h2>
+    <div>
       <button
-        className='title_randomizer'
         onClick={() => {
+          setShouldRotateAvatar(!shouldRotateAvatar);
           setPrimaryTitle(pickPrimaryTitle());
           setSecondaryTitle(pickSecondaryTitle());
         }}
         >
-        switcheroo
       </button>
-    </>
+      <h2>
+        {primaryTitle} and {secondaryTitle}
+      </h2>
+      <style jsx>{`
+        h2 {
+          min-height: 2em;
+          font-size: 2em;
+        }
+
+        button {
+          border: 1px solid ${foregroundColor};
+          border-radius: 6px;
+          cursor: pointer;
+          padding: 0;
+          background: transparent;
+          width: 50px;
+          height: 50px;
+          background-image: url('../static/dave_avatar.jpg');
+          background-size: contain;
+          transform: ${ shouldRotateAvatar ? 'rotate(360deg)' : ''};
+          transition: filter ${THEME_TRANSITION_DURATION}ms ease-out, transform 500ms ease;
+        }
+
+        button:hover {
+          filter: brightness(1.1);
+        }
+      `}</style>
+    </div>
   );
 }

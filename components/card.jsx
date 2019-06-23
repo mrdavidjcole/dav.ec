@@ -38,19 +38,42 @@ export default (props) => {
           z-index: 1;
         }
 
-        @media screen and (min-width:601px) {
+        .button-flex-wrapper {
+          padding: 6px;
+        }
+
+        @media screen and (min-width:1201px) {
           .button-flex-wrapper {
-            flex: 1 1 25%;
-            max-width: 25%;
-            padding: 6px;
+            flex: 1 1 14.28%;
+            max-width: 14.28%;
+          }
+        }
+
+        @media screen and (max-width:1200px) {
+          .button-flex-wrapper {
+            flex: 1 1 20%;
+            max-width: 20%;
+          }
+        }
+
+        @media screen and (max-width:900px) {
+          .button-flex-wrapper {
+            flex: 1 1 33.33%;
+            max-width: 33.33%;
           }
         }
 
         @media screen and (max-width:600px) {
           .button-flex-wrapper {
-            flex: 1 1 33.33%;
-            max-width: 33.33%;
-            padding: 6px;
+            flex: 1 1 50%;
+            max-width: 50%;
+          }
+        }
+
+        @media screen and (max-width:400px) {
+          .button-flex-wrapper {
+            flex: 1 1 100%;
+            max-width: 100%;
           }
         }
 

@@ -5,7 +5,7 @@ export const LIGHT_THEME = {
 };
 
 export const DARK_THEME = {
-  backgroundColor: '#000000',
+  backgroundColor: '#202020',
   foregroundColor: '#ffffff',
   themeName: 'dark',
 };

@@ -17,14 +17,12 @@ export default (props) => {
       <style jsx>{`
         .celestial_body_container {
           align-items: center;
-          background-color: ${backgroundColor};
-          border-radius: 6px;
-          border: 1px solid ${foregroundColor};
+          background-color: transparent;
           color: ${foregroundColor};
           display: flex;
-          height: 50px;
+          height: 100%;
           justify-content: center;
-          width: 50px;
+          width: 100%;
           transition: background-color ${THEME_TRANSITION_DURATION}ms, color ${THEME_TRANSITION_DURATION}ms;
         }
 
