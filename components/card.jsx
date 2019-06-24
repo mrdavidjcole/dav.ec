@@ -92,10 +92,17 @@ export default (props) => {
           }
         }
 
-        @media screen and (max-width:900px) {
+        @media screen and (max-width:1000px) {
+          button {
+            flex: 1 1 calc(25% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
+            max-width: calc(25% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
+          }
+        }
+
+        @media screen and (max-width:800px) {
           button {
             flex: 1 1 calc(33.33% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
-            max-width: 33.calc(33% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
+            max-width: calc(33.33% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
           }
         }
 
@@ -109,7 +116,7 @@ export default (props) => {
         @media screen and (max-width:400px) {
           button {
             flex: 1 1 calc(100% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
-            max-width: 1calc(00% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
+            max-width: calc(100% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
           }
         }
       `}</style>
