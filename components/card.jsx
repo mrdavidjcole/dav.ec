@@ -13,9 +13,7 @@ export default (props) => {
     <>
       <button>
         <div className="button_content_flex_wrapper">
-          <div className="button_content">
-            {props.children}
-          </div>
+          {props.children}
         </div>
       </button>
       <style jsx>{`
@@ -58,10 +56,6 @@ export default (props) => {
           display: flex;
           justify-content: center;
           align-items: center;
-        }
-
-        button_content {
-          flex: 0 0 auto;
         }
 
         /* About all these calculations...
