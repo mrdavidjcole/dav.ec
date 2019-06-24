@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import ThemeContext from '../contexts/ThemeContext.js';
-import CelestialBody from '../components/CelestialBody.jsx';
+import LightSwitch from '../components/LightSwitch.jsx';
 import {
   LIGHT_THEME,
   DARK_THEME,
@@ -12,12 +12,12 @@ export default (props) => {
 
   return (
     <>
-    <button
-      onClick={() => {
-        themeName === DARK_THEME.themeName ? setTheme(LIGHT_THEME) : setTheme(DARK_THEME);
-      }}
-      >
-        <CelestialBody type={themeName === DARK_THEME.themeName ? 'moon' : 'sun'} />
+      <button
+        onClick={() => {
+          themeName === DARK_THEME.themeName ? setTheme(LIGHT_THEME) : setTheme(DARK_THEME);
+        }}
+        >
+        <LightSwitch on={themeName === LIGHT_THEME.themeName} />
       </button>
       <style jsx>{`
         button {

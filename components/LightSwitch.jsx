@@ -3,19 +3,18 @@ import ThemeContext from '../contexts/ThemeContext.js';
 import { THEME_TRANSITION_DURATION } from '../consts.js';
 
 export default (props) => {
-  const {type} = props;
+  const {on} = props;
   const { getTheme } = useContext(ThemeContext);
   const { backgroundColor, foregroundColor, themeName } = getTheme();
-
   return (
     <>
-      <div className='celestial_body_container'>
-        <div className='celestial_body'>
-          {type}
+      <div className='light_switch_container'>
+        <div className='light_switch'>
+          {on ? 'on' : 'off'}
         </div>
       </div>
       <style jsx>{`
-        .celestial_body_container {
+        .light_switch_container {
           align-items: center;
           background-color: transparent;
           color: ${foregroundColor};
@@ -26,7 +25,7 @@ export default (props) => {
           transition: background-color ${THEME_TRANSITION_DURATION}ms, color ${THEME_TRANSITION_DURATION}ms;
         }
 
-        .celestial_body {
+        .light_switch {
           flex: 0 0 auto;
         }
       `}</style>

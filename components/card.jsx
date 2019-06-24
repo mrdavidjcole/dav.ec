@@ -28,6 +28,7 @@ export default (props) => {
           height: 100%;
           margin: 6px;
           position: relative;
+          padding: 0;
           transition: box-shadow 200ms ease, transform 200ms ease, background-color ${THEME_TRANSITION_DURATION}ms ease-out, color ${THEME_TRANSITION_DURATION}ms ease-out;
           width: 100%;
           will-change: transform;

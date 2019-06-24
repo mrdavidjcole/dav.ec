@@ -16,12 +16,25 @@ export default (props) => {
     'Decent gardener',
     'Connecticutian',
     'Your friend',
+    'Wistian',
+    'Gosh darned millienial',
+    'Pixel-pusher',
+    'Web accessibifier',
+    'Owner of too many domain names',
+    'Figure-outer',
+    'Work in progress',
   ];
 
   const SECONDARY_TITLES = [
-    'self-aware amalgamation of stardust',
-    'adequate debugger',
-    'convincing humanoid Slack bot',
+    ' and self-aware amalgamation of stardust',
+    ' and adequate debugger',
+    ' and convincing humanoid Slack bot',
+    ' and aspiring lawn care professional',
+    ' and amateur barista',
+    ' and maker of snappy web interfaces',
+    ', with support from and endless thanks to my loving wife',
+    ', working to make things right',
+    ', working remotely from Fairfield, Connecticut, USA'
   ];
 
   const pickPrimaryTitle = () => {
@@ -49,7 +62,7 @@ export default (props) => {
         >
       </button>
       <h2>
-        {primaryTitle} and {secondaryTitle}
+        {primaryTitle}{secondaryTitle}
       </h2>
       <style jsx>{`
         h2 {
