@@ -43,11 +43,11 @@ const Home = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif|Roboto+Slab&display=swap" rel="stylesheet"/>
       </Head>
+      <ThemeButton />
       <header>
         <h1>
           Dave Cole
         </h1>
-        <ThemeButton />
         <RandomSubheading />
         <p>
           contact: <a className={themeName} href="mailto:davee@djc.lol" target="_blank">dave@djc.lol</a>
@@ -99,7 +99,7 @@ const Home = () => {
         }
         body {
           font-family: 'Roboto Slab', serif;
-          padding: 40px;
+          margin: 48px;
           transition: background-color ${THEME_TRANSITION_DURATION}ms ease-out, color ${THEME_TRANSITION_DURATION}ms ease-out;
         }
 
@@ -118,6 +118,7 @@ const Home = () => {
         h1 {
           font-size: 3em;
           font-family: 'IBM Plex Serif', serif;
+          margin-top: 128px;
         }
 
         h2 {

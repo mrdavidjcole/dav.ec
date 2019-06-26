@@ -8,7 +8,7 @@ import {
 
 export default (props) => {
   const { getTheme } = useContext(ThemeContext);
-  const { themeName, foregroundColor } = getTheme();
+  const { themeName, foregroundColor, mildShadowColor, strongShadowColor } = getTheme();
 
   const PRIMARY_TITLES = [
     'Software engineer',
@@ -52,7 +52,7 @@ export default (props) => {
   const [shouldRotateAvatar, setShouldRotateAvatar] = useState(false);
 
   return (
-    <div>
+    <>
       <button
         onClick={() => {
           setShouldRotateAvatar(!shouldRotateAvatar);
@@ -71,23 +71,33 @@ export default (props) => {
         }
 
         button {
-          border: 1px solid ${foregroundColor};
-          border-radius: 6px;
-          cursor: pointer;
-          padding: 0;
-          background: transparent;
-          width: 50px;
-          height: 50px;
           background-image: url('../static/dave_avatar.jpg');
           background-size: contain;
-          transform: ${ shouldRotateAvatar ? 'rotate(360deg)' : ''};
-          transition: filter ${THEME_TRANSITION_DURATION}ms ease-out, transform 500ms ease;
+          border-radius: 6px;
+          border: 1px solid ${foregroundColor};
+          box-shadow: 0px 4px 8px ${mildShadowColor};
+          cursor: pointer;
+          height: 48px;
+          left: 48px;
+          padding: 0;
+          position: fixed;
+          top: 48px;
+          transform: rotate(${shouldRotateAvatar ? '1080deg' : ''});
+          transition: filter ${THEME_TRANSITION_DURATION}ms ease-out, transform 200ms ease, box-shadow 200ms ease;
+          width: 48px;
         }
 
-        button:hover {
+        button:hover, button:focus {
+          box-shadow: 0px 8px 16px ${strongShadowColor};
+          transform: translateZ(10px) rotate(${shouldRotateAvatar ? '1080deg' : ''});
+          z-index: 1;
           filter: brightness(1.1);
         }
+
+        button:active {
+          transform: translateZ(4px);
+        }
       `}</style>
-    </div>
+    </>
   );
 }
