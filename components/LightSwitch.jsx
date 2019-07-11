@@ -10,6 +10,9 @@ export default (props) => {
     <>
       <div className='light_switch_container'>
         <div className='light_switch'>
+          <div>
+            lights:
+          </div>
           {on ? 'on' : 'off'}
         </div>
       </div>
