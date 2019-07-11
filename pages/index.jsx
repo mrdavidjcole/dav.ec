@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import Card from '../components/card.jsx'
 import RandomSubheading from '../components/RandomSubheading.jsx';
 import ThemeButton from '../components/ThemeButton.jsx';
@@ -55,41 +56,17 @@ const Home = () => {
       </header>
       <main>
         <div className='cards'>
-          <Card>
-            hi I am card
+          <Card externalHref="https://twitter.com/mrdavidjcole">
+            Twitter
           </Card>
-          <Card>
-            hi I am card
+          <Card externalHref="https://instagram.com/mrdavidjcole">
+            Instagram
           </Card>
-          <Card>
-            hi I am card
+          <Card externalHref="https://glitch.com/@mrdavidjcole">
+            Glitch
           </Card>
-          <Card>
-            hi I am card
-          </Card>
-          <Card>
-            hi I am card
-          </Card>
-          <Card>
-            hi I am card
-          </Card>
-          <Card>
-            hi I am card
-          </Card>
-          <Card>
-            hi I am card
-          </Card>
-          <Card>
-            hi I am card
-          </Card>
-          <Card>
-            hi I am card
-          </Card>
-          <Card>
-            hi I am card
-          </Card>
-          <Card>
-            hi I am card
+          <Card externalHref="https://github.com/mrdavidjcole">
+            GitHub
           </Card>
         </div>
       </main>

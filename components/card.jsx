@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import Link from 'next/link';
 import ThemeContext from '../contexts/ThemeContext.js';
 import { THEME_TRANSITION_DURATION } from '../consts.js';
 
@@ -9,37 +10,58 @@ export default (props) => {
   const CARD_MARGIN_LEFT = 6;
   const CARD_MARGIN_RIGHT = 6;
 
+  const { internalHref, externalHref } = props;
+
   return (
     <>
-      <button>
-        <div className="button_content_flex_wrapper">
-          {props.children}
-        </div>
-      </button>
+      {internalHref && !externalHref &&
+        <Link href={internalHref}>
+          <a href={internalHref} className="button">
+            <div className="button_content_flex_wrapper">
+              {props.children}
+            </div>
+          </a>
+        </Link>
+      }
+      {externalHref && !internalHref &&
+        <a href={externalHref} className="button">
+          <div className="button_content_flex_wrapper">
+            {props.children}
+          </div>
+        </a>
+      }
+      {!internalHref && !externalHref &&
+        <button className="button">
+          <div className="button_content_flex_wrapper">
+            {props.children}
+          </div>
+        </button>
+      }
       <style jsx>{`
-        button {
+        .button {
           background-color: ${backgroundColor};
           border-radius: 6px;
           border: 1px solid ${foregroundColor};
           box-shadow: 0px 6px 12px ${mildShadowColor};
           color: ${foregroundColor};
+          font-family: 'Roboto Slab', serif;
+          font-size: 1rem;
           height: 100%;
           margin: 6px;
           position: relative;
           padding: 0;
           transition: box-shadow 200ms ease, transform 200ms ease, background-color ${THEME_TRANSITION_DURATION}ms ease-out, color ${THEME_TRANSITION_DURATION}ms ease-out;
-          width: 100%;
           will-change: transform;
           z-index: 0;
         }
 
-        button:hover, button:focus {
+        .button:hover, .button:focus {
           box-shadow: 0px 20px 40px ${strongShadowColor};
           transform: translateZ(10px);
           z-index: 1;
         }
 
-        button::after {
+        .button::after {
           /* this is a hack to make the button be a responsive square. see
           https://spin.atomicobject.com/2015/07/14/css-responsive-square/ */
           content: '';
@@ -72,43 +94,36 @@ export default (props) => {
         tl;dr: This supports code elsewhere that makes 3d transforms look nice
         in Firefox */
 
-        @media screen and (min-width:1201px) {
-          button {
-            flex: 1 1 calc(14.28% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
-            max-width: calc(14.28% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
-          }
-        }
-
-        @media screen and (max-width:1200px) {
-          button {
+        @media screen and (min-width:1001px) {
+          .button {
             flex: 1 1 calc(20% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
             max-width: calc(20% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
           }
         }
 
         @media screen and (max-width:1000px) {
-          button {
+          .button {
             flex: 1 1 calc(25% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
             max-width: calc(25% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
           }
         }
 
         @media screen and (max-width:800px) {
-          button {
+          .button {
             flex: 1 1 calc(33.33% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
             max-width: calc(33.33% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
           }
         }
 
         @media screen and (max-width:600px) {
-          button {
+          .button {
             flex: 1 1 calc(50% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
             max-width: calc(50% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
           }
         }
 
         @media screen and (max-width:400px) {
-          button {
+          .button {
             flex: 1 1 calc(100% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
             max-width: calc(100% - ${CARD_MARGIN_LEFT}px - ${CARD_MARGIN_RIGHT}px);
           }
