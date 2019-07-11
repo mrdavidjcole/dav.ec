@@ -5,6 +5,10 @@ import Card from '../components/card.jsx'
 import RandomSubheading from '../components/RandomSubheading.jsx';
 import ThemeButton from '../components/ThemeButton.jsx';
 import ThemeContext from '../contexts/ThemeContext.js';
+import GitHubLogo from '../components/GitHubLogo.jsx';
+import GlitchLogo from '../components/GlitchLogo.jsx';
+import TwitterLogo from '../components/TwitterLogo.jsx';
+import InstagramLogo from '../components/InstagramLogo.jsx';
 import {
   LIGHT_THEME,
   DARK_THEME,
@@ -57,16 +61,31 @@ const Home = () => {
       <main>
         <div className='cards'>
           <Card externalHref="https://twitter.com/mrdavidjcole">
-            Twitter
+            <TwitterLogo
+              foregroundColor={foregroundColor}
+              style={{ width: '33.33%' }}
+            />
           </Card>
           <Card externalHref="https://instagram.com/mrdavidjcole">
-            Instagram
+            <InstagramLogo
+              backgroundColor={backgroundColor}
+              foregroundColor={foregroundColor}
+              style={{ width: '20%' }}
+            />
           </Card>
           <Card externalHref="https://glitch.com/@mrdavidjcole">
-            Glitch
+            <GlitchLogo
+              backgroundColor={backgroundColor}
+              foregroundColor={foregroundColor}
+              style={{ width: '25%' }}
+            />
           </Card>
           <Card externalHref="https://github.com/mrdavidjcole">
-            GitHub
+            <GitHubLogo
+              backgroundColor={backgroundColor}
+              foregroundColor={foregroundColor}
+              style={{ width: '25%' }}
+            />
           </Card>
         </div>
       </main>

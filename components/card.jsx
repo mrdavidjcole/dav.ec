@@ -24,7 +24,7 @@ export default (props) => {
         </Link>
       }
       {externalHref && !internalHref &&
-        <a href={externalHref} className="button">
+        <a href={externalHref} className="button" target="_blank">
           <div className="button_content_flex_wrapper">
             {props.children}
           </div>

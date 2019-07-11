@@ -10,10 +10,11 @@ export default (props) => {
     <>
       <div className='light_switch_container'>
         <div className='light_switch'>
-          <div>
+          {/* <div>
             lights:
-          </div>
-          {on ? 'on' : 'off'}
+          </div> */}
+          <div className="status on">on</div>
+          <div className="status off">off</div>
         </div>
       </div>
       <style jsx>{`
@@ -31,6 +32,25 @@ export default (props) => {
         .light_switch {
           flex: 0 0 auto;
         }
+
+        .status {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          text-align: left;
+          transform: translateY(-50%);
+          width: 100%;
+          padding-left: 37%;
+          transition: opacity ${THEME_TRANSITION_DURATION}ms;
+        }
+
+         .on {
+           opacity: ${on ? 1 : 0}
+         }
+
+         .off {
+           opacity: ${on ? 0 : 1}
+         }
       `}</style>
     </>
   );

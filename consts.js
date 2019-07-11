@@ -14,4 +14,4 @@ export const DARK_THEME = {
   strongShadowColor: 'rgba(0, 0, 0, .85)',
 };
 
-export const THEME_TRANSITION_DURATION = 120;
+export const THEME_TRANSITION_DURATION = 300;
