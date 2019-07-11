@@ -86,10 +86,6 @@ export default (props) => {
           box-shadow: 0px 8px 16px ${strongShadowColor};
           transform: translateZ(10px) rotate(${avatarRotationDegress}deg);
         }
-
-        button:active {
-          transform: translateZ(4px) rotate(${avatarRotationDegress}deg);
-        }
       `}</style>
 
       <style jsx>{`
