@@ -68,6 +68,30 @@ export default (props) => {
       <h2>
         {primaryTitle}{secondaryTitle}
       </h2>
+
+      {/* When using styled-jsx, it's best to put dynamic styles (ones with
+      interpolated values) in their own style tag, since the whole style tag
+      will be replaced when any of those dynamic values change. This help
+      minimize the potential for jank. */}
+
+      <style jsx>{`
+        button {
+          border: 1px solid ${foregroundColor};
+          box-shadow: 0px 4px 8px ${mildShadowColor};
+          transform: rotate(${avatarRotationDegress}deg);
+          transition: filter 120ms ease-out, transform ${TRANSFORM_DURATION}ms cubic-bezier(.75,-0.25,.75,.5), box-shadow 200ms ease;
+        }
+
+        button:hover, button:focus {
+          box-shadow: 0px 8px 16px ${strongShadowColor};
+          transform: translateZ(10px) rotate(${avatarRotationDegress}deg);
+        }
+
+        button:active {
+          transform: translateZ(4px) rotate(${avatarRotationDegress}deg);
+        }
+      `}</style>
+
       <style jsx>{`
         h2 {
           min-height: 2em;
@@ -75,32 +99,41 @@ export default (props) => {
         }
 
         button {
+          animation: 800ms rotatehint 1000ms ease-in;
           background-image: url('../static/dave_avatar.jpg');
           background-size: contain;
           border-radius: 6px;
-          border: 1px solid ${foregroundColor};
-          box-shadow: 0px 4px 8px ${mildShadowColor};
           cursor: pointer;
           height: 48px;
           left: 48px;
           padding: 0;
           position: fixed;
           top: 48px;
-          transform: rotate(${avatarRotationDegress}deg);
-          transition: filter 120ms ease-out, transform ${TRANSFORM_DURATION}ms cubic-bezier(.75,-0.25,.75,.5), box-shadow 200ms ease;
           width: 48px;
           z-index: 1;
         }
 
         button:hover, button:focus {
-          box-shadow: 0px 8px 16px ${strongShadowColor};
-          transform: translateZ(10px) rotate(${avatarRotationDegress}deg);
           z-index: 1;
           filter: brightness(1.1);
         }
 
-        button:active {
-          transform: translateZ(4px) rotate(${avatarRotationDegress}deg);
+        @keyframes rotatehint {
+          0% {
+            transform: rotate(0deg);
+          }
+          50% {
+            transform: rotate(-15deg)
+          }
+          65% {
+            transform: rotate(0deg);
+          }
+          80% {
+            transform: rotate(-15deg);
+          }
+          100% {
+            transform: rotate(0deg);
+          }
         }
       `}</style>
     </>
