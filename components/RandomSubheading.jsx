@@ -6,6 +6,8 @@ import {
   THEME_TRANSITION_DURATION,
 } from '../consts.js';
 
+const TRANSFORM_DURATION = 600;
+
 export default (props) => {
   const { getTheme } = useContext(ThemeContext);
   const { themeName, foregroundColor, mildShadowColor, strongShadowColor } = getTheme();
@@ -49,15 +51,17 @@ export default (props) => {
 
   const [primaryTitle, setPrimaryTitle] = useState(pickPrimaryTitle());
   const [secondaryTitle, setSecondaryTitle] = useState(pickSecondaryTitle());
-  const [shouldRotateAvatar, setShouldRotateAvatar] = useState(false);
+  const [avatarRotationDegress, setAvatarRotationDegress] = useState(0);
 
   return (
     <>
       <button
         onClick={() => {
-          setShouldRotateAvatar(!shouldRotateAvatar);
-          setPrimaryTitle(pickPrimaryTitle());
-          setSecondaryTitle(pickSecondaryTitle());
+          setAvatarRotationDegress(avatarRotationDegress + 360);
+          setTimeout(() => {
+            setPrimaryTitle(pickPrimaryTitle());
+            setSecondaryTitle(pickSecondaryTitle());
+          }, TRANSFORM_DURATION);
         }}
         >
       </button>
@@ -82,20 +86,20 @@ export default (props) => {
           padding: 0;
           position: fixed;
           top: 48px;
-          transform: rotate(${shouldRotateAvatar ? '1080deg' : ''});
-          transition: filter ${THEME_TRANSITION_DURATION}ms ease-out, transform 200ms ease, box-shadow 200ms ease;
+          transform: rotate(${avatarRotationDegress}deg);
+          transition: filter 120ms ease-out, transform ${TRANSFORM_DURATION}ms cubic-bezier(.75,-0.25,.75,.5), box-shadow 200ms ease;
           width: 48px;
         }
 
         button:hover, button:focus {
           box-shadow: 0px 8px 16px ${strongShadowColor};
-          transform: translateZ(10px) rotate(${shouldRotateAvatar ? '1080deg' : ''});
+          transform: translateZ(10px) rotate(${avatarRotationDegress}deg);
           z-index: 1;
           filter: brightness(1.1);
         }
 
         button:active {
-          transform: translateZ(4px);
+          transform: translateZ(4px) rotate(${avatarRotationDegress}deg);
         }
       `}</style>
     </>
