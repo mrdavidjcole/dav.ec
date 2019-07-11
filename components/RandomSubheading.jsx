@@ -89,6 +89,7 @@ export default (props) => {
           transform: rotate(${avatarRotationDegress}deg);
           transition: filter 120ms ease-out, transform ${TRANSFORM_DURATION}ms cubic-bezier(.75,-0.25,.75,.5), box-shadow 200ms ease;
           width: 48px;
+          z-index: 1;
         }
 
         button:hover, button:focus {

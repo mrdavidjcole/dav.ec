@@ -8,8 +8,18 @@ import {
 } from '../consts.js';
 
 export default (props) => {
-  const { getTheme, setTheme } = useContext(ThemeContext);
-  const { themeName, foregroundColor, mildShadowColor, strongShadowColor } = getTheme();
+  const {
+    getTheme,
+    setTheme,
+  } = useContext(ThemeContext);
+
+  const {
+    themeName,
+    backgroundColor,
+    foregroundColor,
+    mildShadowColor,
+    strongShadowColor,
+  } = getTheme();
 
   return (
     <>
@@ -22,7 +32,7 @@ export default (props) => {
       </button>
       <style jsx>{`
         button {
-          background: transparent;
+          background-color: ${backgroundColor};
           border-radius: 6px;
           border: 1px solid ${foregroundColor};
           box-shadow: 0px 4px 8px ${mildShadowColor};
@@ -33,6 +43,7 @@ export default (props) => {
           top: 48px;
           transition: filter ${THEME_TRANSITION_DURATION}ms ease-out, transform 200ms ease, box-shadow 200ms ease;
           width: 48px;
+          z-index: 1;
         }
 
         button:hover, button:focus {
