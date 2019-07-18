@@ -54,12 +54,12 @@ const Ole = () => {
           Dave Cole
         </h1>
         <RandomSubheading />
-        <p>
-          contact: <a className={themeName} href="mailto:davee@djc.lol" target="_blank">dave@djc.lol</a>
-        </p>
       </header>
       <main>
         <div className='cards'>
+          <Card externalHref="mailto:dave@dav.ec">
+            dave@dav.ec
+          </Card>
           <Card externalHref="https://twitter.com/mrdavidjcole">
             <TwitterLogo
               foregroundColor={foregroundColor}
