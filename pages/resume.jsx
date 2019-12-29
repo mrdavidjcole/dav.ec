@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import JobMetadata from '../components/job-metadata.jsx';
 
 const Resume = () => {
   const today = new Date();
@@ -34,10 +35,15 @@ const Resume = () => {
           <section>
             <h2>Professional Experience</h2>
 
-            <h3>Software Engineer II</h3>
-            <p>Player Team</p>
-            <time dateTime="2019-4-1">April 2019</time> - <time dateTime={formattedDate}>Now</time>
-            <p>Remote</p>
+            <JobMetadata
+              title="Software Engineer II"
+              team="Player Team"
+              startDate="2019-4-1"
+              prettyStartDate="April 2019"
+              endDate={formattedDate}
+              prettyEndDate="Now"
+              location="Remote"
+            />
             <ul>
               <li>Preact X upgrade</li>
               <li>Accessibility Checklist</li>
@@ -46,29 +52,50 @@ const Resume = () => {
               <li></li>
             </ul>
 
-            <h3>Software Engineer I</h3>
-            <p>Player Team</p>
-            <time dateTime="2018-4-15">April 2018</time> - <time dateTime="2019-4-1">April 2019</time>
-            <p>Cambridge, MA & Remote</p>
+            <JobMetadata
+              title="Software Engineer I"
+              team="Player Team"
+              startDate="2018-4-15"
+              prettyStartDate="April 2018"
+              endDate="2019-4-1"
+              prettyEndDate="April 2019"
+              location="Cambridge, MA & Remote"
+            />
             <ul>
               <li>Customize panel rebuild</li>
               <li>Thumbnail Text Overlay plugin</li>
             </ul>
 
-            <h3>Support Engineer II</h3>
-            <p>Customer Happiness Team</p>
-            <time dateTime="2017-1-30">January 2017</time> - <time dateTime="2018-4-15">April 2018</time>
-            <p>Cambridge, MA</p>
+            <JobMetadata
+              title="Support Engineer II"
+              team="Customer Happiness Team"
+              startDate="2017-1-30"
+              prettyStartDate="January 2017"
+              endDate="2018-4-15"
+              prettyEndDate="April 2018"
+              location="Cambridge, MA"
+            />
 
-            <h3>Product Manager</h3>
-            <p>Platform Team</p>
-            <time dateTime="2017-1-30">December 2015</time> - <time dateTime="2017-1-30">January 2017</time>
-            <p>Cambridge, MA</p>
+            <JobMetadata
+              title="Product Manager"
+              team="Platform Team"
+              startDate="2017-1-30"
+              prettyStartDate="December 2015"
+              endDate="2017-1-30"
+              prettyEndDate="January 2017"
+              location="Cambridge, MA"
+            />
 
-            <h3>Customer Champion</h3>
-            <p>Customer Happiness Team</p>
-            <time dateTime="2013-9-30">September 2013</time> - <time dateTime="2017-1-30">December 2015</time>
-            <p>Cambridge, MA</p>
+            <JobMetadata
+              title="Customer Champion"
+              team="Customer Happiness Team"
+              startDate="2013-9-30"
+              prettyStartDate="September 2013"
+              endDate="2017-1-30"
+              prettyEndDate="December 2015"
+              location="Cambridge, MA"
+            />
+
             <ul>
               <li>
                 Pair programmed with Abby Howell (a software engineer) to implement a new pricing structure in Wistia's main rails application, including changes to the purchase and upgrade flows and the billing system
