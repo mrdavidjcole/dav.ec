@@ -14,6 +14,15 @@ const Resume = () => {
           font-family: 'Gelasio', serif;
         }
 
+        address {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        address a {
+          flex: 0 0 auto;
+        }
+
         .resume {
           display: flex;
           width: 67%;
@@ -27,8 +36,13 @@ const Resume = () => {
           <h1>
             Dave Cole
           </h1>
+          <address>
+            <a href="mailto:mrdavidjcole@gmail.com">mrdavidjcole@gmail.com</a>
+            <a href="tel:2039131776">203-913-1776</a>
+            <a href="https://dav.ec">https://dav.ec</a>
+          </address>
           <p>
-            Software engineer. Currently building portable, composable widgets for the web at @wistia. Previously stardust. Working to make things right.
+            Software engineer. Currently building portable, composable widgets for the web at <a href="https://wistia.com">Wistia</a>.
           </p>
         </header>
         <main>
@@ -49,7 +63,7 @@ const Resume = () => {
               <li>Accessibility Checklist</li>
               <li>Channel embed, channel editor</li>
               <li>Popover-v3 embed</li>
-              <li></li>
+              <li>#troubleshooting</li>
             </ul>
 
             <JobMetadata
@@ -62,8 +76,9 @@ const Resume = () => {
               location="Cambridge, MA & Remote"
             />
             <ul>
+              <li>In collaboration with Max Schnur (Principal Engineer), created <a href="https://wistia.com/learn/product-updates/introducing-wistia-channels">Wistia Channels.</a></li>
               <li>Customize panel rebuild</li>
-              <li>Thumbnail Text Overlay plugin</li>
+              <li><a href="https://wistia.com/learn/product-updates/new-thumbnail-editor">Thumbnail Editor</a></li>
             </ul>
 
             <JobMetadata
@@ -76,6 +91,12 @@ const Resume = () => {
               location="Cambridge, MA"
             />
 
+            <ul>
+              <li>
+                <a href="https://wistia.com/learn/product-updates/wistia-trello-power-up">Wistia Trello Power-Up</a>
+              </li>
+            </ul>
+
             <JobMetadata
               title="Product Manager"
               team="Platform Team"
@@ -85,6 +106,14 @@ const Resume = () => {
               prettyEndDate="January 2017"
               location="Cambridge, MA"
             />
+
+            <ul>
+              <li>
+                <a href="https://wistia.com/support/developers/uploader">Wistia Uploader</a>
+                <a href="https://wistia.com/support/developers/wistia-chooser">Wistia Chooser</a>
+                <a href="https://chrome.google.com/webstore/detail/wistia/glpmnfanmgkmkinnnlmmgmeoeliafoln?hl=en">Wistia for Chrome</a>
+              </li>
+            </ul>
 
             <JobMetadata
               title="Customer Champion"
