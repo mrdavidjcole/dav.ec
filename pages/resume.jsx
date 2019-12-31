@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import JobMetadata from '../components/job-metadata.jsx';
+import Company from '../components/company.jsx';
+import LinkWithBoxArrow from '../components/link-with-box-arrow.jsx';
 
 const Resume = () => {
   const today = new Date();
@@ -12,6 +14,21 @@ const Resume = () => {
       <style jsx>{`
         * {
           font-family: 'Gelasio', serif;
+        }
+
+        a {
+          text-decoration: none;
+          border-bottom: 1px solid transparent;
+          transition: border-bottom 160ms;
+          color: #000000;
+        }
+
+        a:hover {
+          border-bottom: 1px solid #000000;
+        }
+
+        a:visited {
+          color: #000000;
         }
 
         address {
@@ -39,6 +56,11 @@ const Resume = () => {
         }
       `}
       </style>
+      <style global jsx>{`
+        * {
+          box-sizing: border-box;
+        }
+      `}</style>
       <div className="resume-wrapper">
         <div className="resume">
           <header>
@@ -57,91 +79,103 @@ const Resume = () => {
           <main>
             <section>
               <h2>Professional Experience</h2>
+              <Company name="Wistia">
+                <JobMetadata
+                  title="Software Engineer II"
+                  team="Player Team"
+                  startDate="2019-4-1"
+                  prettyStartDate="April 2019"
+                  endDate={formattedDate}
+                  prettyEndDate="Now"
+                  location="Remote"
+                />
+                <ul>
+                  <li>Preact X upgrade</li>
+                  <li>Accessibility Checklist</li>
+                  <li>Channel embed, channel editor</li>
+                  <li>Popover-v3 embed</li>
+                  <li>#troubleshooting</li>
+                </ul>
 
-              <JobMetadata
-                title="Software Engineer II"
-                team="Player Team"
-                startDate="2019-4-1"
-                prettyStartDate="April 2019"
-                endDate={formattedDate}
-                prettyEndDate="Now"
-                location="Remote"
-              />
-              <ul>
-                <li>Preact X upgrade</li>
-                <li>Accessibility Checklist</li>
-                <li>Channel embed, channel editor</li>
-                <li>Popover-v3 embed</li>
-                <li>#troubleshooting</li>
-              </ul>
+                <JobMetadata
+                  title="Software Engineer I"
+                  team="Player Team"
+                  startDate="2018-4-15"
+                  prettyStartDate="April 2018"
+                  endDate="2019-4-1"
+                  prettyEndDate="April 2019"
+                  location="Cambridge, MA & Remote"
+                />
+                <ul>
+                  <li>In collaboration with Max Schnur (Principal Engineer), created <a href="https://wistia.com/learn/product-updates/introducing-wistia-channels">Wistia Channels.</a></li>
+                  <li>Customize panel rebuild</li>
+                  <li>
+                    <LinkWithBoxArrow
+                      href="https://wistia.com/learn/product-updates/new-thumbnail-editor"
+                    >
+                      Thumbnail Editor
+                    </LinkWithBoxArrow>
+                  </li>
+                </ul>
 
-              <JobMetadata
-                title="Software Engineer I"
-                team="Player Team"
-                startDate="2018-4-15"
-                prettyStartDate="April 2018"
-                endDate="2019-4-1"
-                prettyEndDate="April 2019"
-                location="Cambridge, MA & Remote"
-              />
-              <ul>
-                <li>In collaboration with Max Schnur (Principal Engineer), created <a href="https://wistia.com/learn/product-updates/introducing-wistia-channels">Wistia Channels.</a></li>
-                <li>Customize panel rebuild</li>
-                <li><a href="https://wistia.com/learn/product-updates/new-thumbnail-editor">Thumbnail Editor</a></li>
-              </ul>
+                <JobMetadata
+                  title="Support Engineer II"
+                  team="Customer Happiness Team"
+                  startDate="2017-1-30"
+                  prettyStartDate="January 2017"
+                  endDate="2018-4-15"
+                  prettyEndDate="April 2018"
+                  location="Cambridge, MA"
+                />
 
-              <JobMetadata
-                title="Support Engineer II"
-                team="Customer Happiness Team"
-                startDate="2017-1-30"
-                prettyStartDate="January 2017"
-                endDate="2018-4-15"
-                prettyEndDate="April 2018"
-                location="Cambridge, MA"
-              />
+                <ul>
+                  <li>
+                    <LinkWithBoxArrow href="https://wistia.com/learn/product-updates/wistia-trello-power-up">Wistia Trello Power-Up</LinkWithBoxArrow>
+                  </li>
+                </ul>
 
-              <ul>
-                <li>
-                  <a href="https://wistia.com/learn/product-updates/wistia-trello-power-up">Wistia Trello Power-Up</a>
-                </li>
-              </ul>
+                <JobMetadata
+                  title="Product Manager"
+                  team="Platform Team"
+                  startDate="2017-1-30"
+                  prettyStartDate="December 2015"
+                  endDate="2017-1-30"
+                  prettyEndDate="January 2017"
+                  location="Cambridge, MA"
+                />
 
-              <JobMetadata
-                title="Product Manager"
-                team="Platform Team"
-                startDate="2017-1-30"
-                prettyStartDate="December 2015"
-                endDate="2017-1-30"
-                prettyEndDate="January 2017"
-                location="Cambridge, MA"
-              />
+                <ul>
+                  <li>
+                    <LinkWithBoxArrow href="https://wistia.com/support/developers/uploader">Wistia Uploader</LinkWithBoxArrow>
+                  </li>
+                  <li>
+                    <LinkWithBoxArrow href="https://wistia.com/support/developers/wistia-chooser">Wistia Chooser</LinkWithBoxArrow>
+                  </li>
+                  <li>
+                    <LinkWithBoxArrow href="https://chrome.google.com/webstore/detail/wistia/glpmnfanmgkmkinnnlmmgmeoeliafoln?hl=en">Wistia for Chrome</LinkWithBoxArrow>
+                  </li>
+                </ul>
 
-              <ul>
-                <li>
-                  <a href="https://wistia.com/support/developers/uploader">Wistia Uploader</a>
-                  <a href="https://wistia.com/support/developers/wistia-chooser">Wistia Chooser</a>
-                  <a href="https://chrome.google.com/webstore/detail/wistia/glpmnfanmgkmkinnnlmmgmeoeliafoln?hl=en">Wistia for Chrome</a>
-                </li>
-              </ul>
+                <JobMetadata
+                  title="Customer Champion"
+                  team="Customer Happiness Team"
+                  startDate="2013-9-30"
+                  prettyStartDate="September 2013"
+                  endDate="2017-1-30"
+                  prettyEndDate="December 2015"
+                  location="Cambridge, MA"
+                />
 
-              <JobMetadata
-                title="Customer Champion"
-                team="Customer Happiness Team"
-                startDate="2013-9-30"
-                prettyStartDate="September 2013"
-                endDate="2017-1-30"
-                prettyEndDate="December 2015"
-                location="Cambridge, MA"
-              />
+                <ul>
+                  <li>
+                    Pair programmed with Abby Howell (a software engineer) to implement a new pricing structure in Wistia's main rails application, including changes to the purchase and upgrade flows and the billing system
+                  </li>
+                  <li>
 
-              <ul>
-                <li>
-                  Pair programmed with Abby Howell (a software engineer) to implement a new pricing structure in Wistia's main rails application, including changes to the purchase and upgrade flows and the billing system
-                </li>
-                <li>
+                  </li>
+                </ul>
+              </Company>
 
-                </li>
-              </ul>
 
             </section>
             <section>
