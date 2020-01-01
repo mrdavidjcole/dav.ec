@@ -1,5 +1,5 @@
 {
-  "name": "lol",
+  "name": "dav.ec",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,6 +9,7 @@
     "build": "next build",
     "start": "next start"
   },
+  "repository": "https://github.com/mrdavidjcole/dav.ec",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -16,5 +17,8 @@
     "next": "^9.1.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
+  },
+  "engines": {
+    "node": "13.5.0"
   }
 }
