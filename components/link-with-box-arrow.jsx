@@ -9,28 +9,34 @@ const LinkWithBoxArrow = (props) => {
   return (
     <>
       <style jsx>{`
+        .container:hover > .content_wrapper {
+          border-bottom: 1px solid pink;
+          filter: brightness(0);
+        }
+
+        .container:hover > .arrow_wrapper {
+          filter: brightness(0);
+        }
+
         .content_wrapper {
           border-bottom: 1px solid transparent;
           text-decoration: none;
-          transition: border-bottom 160ms;
-        }
-
-        .content_wrapper:hover {
-          border-bottom: 1px solid #000000;
+          transition: border-bottom 160ms, filter 160ms;
         }
 
         .content_wrapper:visited {
-          color: #000000;
+          color: #303030;
         }
 
         .arrow_wrapper {
           border: none;
           display: inline-block;
           text-decoration: none;
+          transition: filter 160ms;
           vertical-align: text-bottom;
         }
       `}</style>
-      <span>
+      <span className="container">
         <a
           className="content_wrapper"
           href={href}
@@ -45,7 +51,7 @@ const LinkWithBoxArrow = (props) => {
           rel="nooppener noreferrer"
           target="_blank"
         >
-          <IconBoxArrowUpRight/>
+          <IconBoxArrowUpRight color="#303030"/>
         </a>
       </span>
     </>

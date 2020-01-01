@@ -14,21 +14,23 @@ const Resume = () => {
       <style jsx>{`
         * {
           font-family: 'Gelasio', serif;
+          color: #303030;
         }
 
         a {
           text-decoration: none;
           border-bottom: 1px solid transparent;
-          transition: border-bottom 160ms;
-          color: #000000;
+          transition: border-bottom 160ms, filter 160ms;
+          color: #303030;
         }
 
         a:hover {
           border-bottom: 1px solid #000000;
+          filter: brightness(0);
         }
 
         a:visited {
-          color: #000000;
+          color: #303030;
         }
 
         address {
@@ -70,7 +72,7 @@ const Resume = () => {
             <address>
               <a href="mailto:mrdavidjcole@gmail.com">mrdavidjcole@gmail.com</a>
               <a href="tel:2039131776">203-913-1776</a>
-              <a href="https://dav.ec">https://dav.ec</a>
+              <a href="https://dav.ec/ole">dav.ec/cole</a>
             </address>
             <p>
               Software engineer. Currently building portable, composable widgets for the web at <a href="https://wistia.com">Wistia</a>.
@@ -161,7 +163,7 @@ const Resume = () => {
                   team="Customer Happiness Team"
                   startDate="2013-9-30"
                   prettyStartDate="September 2013"
-                  endDate="2017-1-30"
+                  endDate="2015-12-30"
                   prettyEndDate="December 2015"
                   location="Cambridge, MA"
                 />
