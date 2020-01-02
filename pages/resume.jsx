@@ -28,7 +28,7 @@ const Resume = (props) => {
       company: "Wistia",
       location: "Cambridge, MA",
       startDate: "2018-4-1",
-      startDatePretty: "April 2018",
+      startDatePretty: "Apr 2018",
       summary: "On the player team...",
       team: "Player Team",
       title: "Engineer I",
@@ -67,6 +67,10 @@ const Resume = (props) => {
           flex: 0 0 auto;
           margin: 0;
           align-items: flex-end;
+        }
+
+        main {
+          padding: 1em;
         }
 
         a {

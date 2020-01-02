@@ -11,7 +11,7 @@ const Job = (props) => {
   } = props;
   return (
     <>
-      <style>{`
+      <style jsx>{`
         .job {
           display: flex;
           flex-direction: row;
@@ -24,22 +24,36 @@ const Job = (props) => {
           flex-direction: column;
           justify-content: flex-end;
           align-items: flex-end;
-          margin-right: 10px;
+          margin-right: 40px;
           height: auto;
+          flex: 0 0 70px;
         }
 
         .job_metadata {
-          margin-right: 10px;
+          margin-right: 40px;
           height: 100%;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
           justify-content: flex-start;
+          flex: 0 0 180px;
+        }
+
+        .job_metadata p {
+          margin: .2em 0;
         }
 
         .job_content {
           display: flex;
           flex-direction: column;
+        }
+
+        .job_content ul {
+          padding-left: 1em;
+        }
+
+        .job_content li {
+          margin: 1em 0;
         }
       `}</style>
       <section className="job">
