@@ -11,6 +11,11 @@ const Resume = (props) => {
         body {
           font-family: 'Lato', sans-serif;
         }
+        @media print {
+          body {
+            -webkit-print-color-adjust: exact;
+          }
+        }
       `}</style>
       <style jsx>{`
         * {

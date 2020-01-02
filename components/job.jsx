@@ -27,9 +27,13 @@ const Job = (props) => {
           align-items: flex-end;
           margin-right: 20px;
           height: auto;
-          flex: 0 0 70px;
+          flex: 0 0 4em;
           padding-right: 20px;
           border-right: 3px solid #D0D0D0;
+        }
+
+        time {
+          font-size: .85em;
         }
 
         .job_waypoint {
@@ -68,6 +72,7 @@ const Job = (props) => {
           display: flex;
           flex-direction: column;
           padding: 0 0 2em 0;
+          flex: 1 1 500px;
         }
 
         .job_content ul {
