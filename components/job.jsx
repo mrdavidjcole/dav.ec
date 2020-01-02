@@ -43,9 +43,15 @@ const Job = (props) => {
           height: 7px;
         }
 
+        .job_metadata_and_content_wrapper {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          flex: 1 1 auto;
+        }
+
         .job_metadata {
           margin-right: 40px;
-          height: 100%;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
@@ -78,25 +84,27 @@ const Job = (props) => {
           <time dateTime={startDate}>{startDatePretty}</time>
           <div className="job_waypoint"/>
         </div>
-        <div className="job_metadata">
-          <h3>{title}</h3>
-          <p>{team}</p>
-          <p>{company}</p>
-          <p>{location}</p>
-        </div>
-        <div className="job_content">
-          <p>
-            {summary}
-          </p>
-          <ul>
-            {bullets.map((bullet, index) => (
-              <li
-                key={index}
-              >
-                {bullet}
-              </li>
-            ))}
-          </ul>
+        <div className="job_metadata_and_content_wrapper">
+          <div className="job_metadata">
+            <h3>{title}</h3>
+            <p>{team}</p>
+            <p>{company}</p>
+            <p>{location}</p>
+          </div>
+          <div className="job_content">
+            <p>
+              {summary}
+            </p>
+            <ul>
+              {bullets.map((bullet, index) => (
+                <li
+                  key={index}
+                  >
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </div>
         </div>
       </section>
     </>
