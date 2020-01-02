@@ -20,13 +20,27 @@ const Job = (props) => {
         }
 
         .job_start_date {
+          position: relative;
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
           align-items: flex-end;
-          margin-right: 40px;
+          margin-right: 20px;
           height: auto;
           flex: 0 0 70px;
+          padding-right: 20px;
+          border-right: 3px solid #D0D0D0;
+        }
+
+        .job_waypoint {
+          width: 7px;
+          border-radius: 50%;
+          position: absolute;
+          right: -6px;
+          bottom: 5px;
+          background-color: #67A3E8;
+          border: 1px solid #ffffff;
+          height: 7px;
         }
 
         .job_metadata {
@@ -37,6 +51,7 @@ const Job = (props) => {
           align-items: flex-start;
           justify-content: flex-start;
           flex: 0 0 180px;
+          padding: 0 0 2em 0;
         }
 
         .job_metadata p {
@@ -46,6 +61,7 @@ const Job = (props) => {
         .job_content {
           display: flex;
           flex-direction: column;
+          padding: 2em 0;
         }
 
         .job_content ul {
@@ -59,6 +75,7 @@ const Job = (props) => {
       <section className="job">
         <div className="job_start_date">
           <time dateTime={startDate}>{startDatePretty}</time>
+          <div className="job_waypoint"/>
         </div>
         <div className="job_metadata">
           <h3>{title}</h3>
