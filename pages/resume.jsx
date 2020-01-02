@@ -96,7 +96,7 @@ const Resume = (props) => {
       <header>
         <h1>Dave Cole</h1>
         <address>
-          <a href="https://dav.ec/ole">dav.ec/cole</a>
+          <a href="https://dav.ec/ole">dav.ec/ole</a>
           <a href="tel:2039131776">203-913-1776</a>
           <a href="mailto:mrdavidjcole@gmail.com">mrdavidjcole@gmail.com</a>
         </address>
