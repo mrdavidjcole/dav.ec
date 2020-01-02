@@ -1,38 +1,9 @@
+import fetch from 'isomorphic-unfetch';
 import Head from 'next/head';
 import Job from '../components/job.jsx';
 
 const Resume = (props) => {
-
-  const engineerTwobullets = [
-    "Accessibility Checklist. Extended the Customize panel (a React application for configuring the Wistia video player) to include a layer that indicates whether various aspects of the video player’s configuration meet WCAG 2.1 AA web accessibility requirements.",
-    "Popover V3. Created a new version of the Popover embed type (a lightbox modal interface). Dramatically improved performance (initialization and interactivity peformance in Popover V2 would degrade as the number of embeds increased, while V3 scales practically infinitely).",
-    "Wistia Channels.",
-    "Player maintenance. Upgraded from Preact 8.2.7 to Preact X"
-  ];
-
-  const engineerTwosummary = "On the player team we are primarily responsible for the parts of Wistia that customers embed onto their websites, and the tools for configuring those embeds. This includes the Wistia video player, which is used tens of millions of times per day."
-  const jobsProps = [
-    {
-      bullets: engineerTwobullets,
-      company: "Wistia",
-      location: "Fairfield, CT (Remote)",
-      startDate: "2019-4-1",
-      startDatePretty: "Apr 2019",
-      summary: engineerTwosummary,
-      team: "Player Team",
-      title: "Engineer II",
-    },
-    {
-      bullets: [],
-      company: "Wistia",
-      location: "Cambridge, MA",
-      startDate: "2018-4-1",
-      startDatePretty: "Apr 2018",
-      summary: "On the player team...",
-      team: "Player Team",
-      title: "Engineer I",
-    },
-  ];
+  const { jobsProps } = props;
 
   return (
     <>
@@ -119,6 +90,14 @@ const Resume = (props) => {
       </main>
     </>
   );
+};
+
+Resume.getInitialProps = async () => {
+  const inDev = process.env.NODE_ENV === 'development';
+  const rootUrl = inDev ? "http://localhost:3000" : "https://dav.ec";
+  const res = await fetch(`${rootUrl}/api/jobs`);
+  const jobs = await res.json();
+  return { jobsProps: jobs };
 };
 
 export default Resume;
