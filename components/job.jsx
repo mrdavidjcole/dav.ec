@@ -61,11 +61,12 @@ const Job = (props) => {
         .job_content {
           display: flex;
           flex-direction: column;
-          padding: 2em 0;
+          padding: 0 0 2em 0;
         }
 
         .job_content ul {
           padding-left: 1em;
+          margin: 0;
         }
 
         .job_content li {
