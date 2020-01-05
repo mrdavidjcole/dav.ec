@@ -1,3 +1,18 @@
+import parse, { domToReact } from 'html-react-parser';
+import LinkWithBoxArrow from './link-with-box-arrow.jsx';
+
+const renderBullet = (bullet) => {
+  return parse(bullet, {
+    replace: (domNode) => {
+      if (domNode.name === 'a') {
+        return (<LinkWithBoxArrow href={domNode.attribs.href}>
+          {domToReact(domNode.children)}
+        </LinkWithBoxArrow>)
+      }
+    }
+  });
+};
+
 const Job = (props) => {
   const {
     bullets,
@@ -104,9 +119,9 @@ const Job = (props) => {
               {bullets.map((bullet, index) => (
                 <li
                   key={index}
-                  >
-                    {bullet}
-                  </li>
+                >
+                  {renderBullet(bullet)}
+                </li>
                 ))}
               </ul>
             </div>

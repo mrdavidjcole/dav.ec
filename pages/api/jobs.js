@@ -23,12 +23,12 @@ export default (req, res) => {
   }
 
   const engineerOneWistia = {
-    bullets: [],
+    bullets: ["Created the <a href=\"https://wistia.com/learn/product-updates/new-thumbnail-editor\">Thumbnail Editor</a>, a tool that lets customers create custom image thumbnails, looping video thumbnails, and responsive text overlays"],
     company: "Wistia",
     location: "Cambridge, MA",
     startDate: "2018-4-1",
     startDatePretty: "Apr 2018",
-    summary: "",
+    summary: "After several years of building solutions with the player API, helping customers use the player on their websites, and fixing bugs in the player on the side, I officially joined the Player Team as a software engineer.",
     team: "Player Team",
     title: "Engineer I",
   };
