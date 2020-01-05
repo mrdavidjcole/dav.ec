@@ -66,7 +66,14 @@ export default (req, res) => {
     title: "Customer Champion",
   };
 
+  const nowStub = {
+    bullets: [],
+    startDate: "2020-1-2",
+    startDatePretty: "Now",
+  };
+
   const jobs = [
+    nowStub,
     engineerTwoWistia,
     engineerOneWistia,
     supportEngineerTwoWistia,

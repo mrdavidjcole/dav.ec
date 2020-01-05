@@ -44,7 +44,7 @@ const Job = (props) => {
           height: auto;
           flex: 0 0 4em;
           padding-right: 20px;
-          border-right: 3px solid #D0D0D0;
+          border-right: ${startDatePretty === "Now" ? '' : '3px solid #D0D0D0'};
         }
 
         time {
