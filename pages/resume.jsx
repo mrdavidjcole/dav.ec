@@ -1,15 +1,15 @@
-import fetch from 'isomorphic-unfetch';
-import Head from 'next/head';
-import Job from '../components/job.jsx';
+import fetch from "isomorphic-unfetch";
+import Head from "next/head";
+import Job from "../components/job.jsx";
 
-const Resume = (props) => {
-  const { jobsProps } = props;
+const Resume = props => {
+  const { resumeProps } = props;
 
   return (
     <>
       <style global jsx>{`
         body {
-          font-family: 'Lato', sans-serif;
+          font-family: "Lato", sans-serif;
         }
         @media print {
           body {
@@ -70,7 +70,10 @@ const Resume = (props) => {
         }
       `}</style>
       <Head>
-         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"/>
+        <link
+          href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <header>
         <h1>Dave Cole</h1>
@@ -84,11 +87,8 @@ const Resume = (props) => {
         <section>
           <h2>Professional Experience</h2>
           <div className="jobs">
-            {jobsProps.map((jobProps, index) => (
-              <Job
-                {...jobProps}
-                key={index}
-              />
+            {resumeProps.jobs.map((jobProps, index) => (
+              <Job {...jobProps} key={index} />
             ))}
           </div>
         </section>
@@ -98,11 +98,11 @@ const Resume = (props) => {
 };
 
 Resume.getInitialProps = async () => {
-  const inDev = process.env.NODE_ENV === 'development';
+  const inDev = process.env.NODE_ENV === "development";
   const rootUrl = inDev ? "http://localhost:3000" : "https://dav.ec";
-  const res = await fetch(`${rootUrl}/api/jobs`);
-  const jobs = await res.json();
-  return { jobsProps: jobs };
+  const res = await fetch(`${rootUrl}/api/resume`);
+  const resume = await res.json();
+  return { resumeProps: resume };
 };
 
 export default Resume;

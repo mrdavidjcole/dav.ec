@@ -1,19 +1,21 @@
-import parse, { domToReact } from 'html-react-parser';
-import LinkWithBoxArrow from './link-with-box-arrow.jsx';
+import parse, { domToReact } from "html-react-parser";
+import LinkWithBoxArrow from "./link-with-box-arrow.jsx";
 
-const renderBullet = (bullet) => {
+const renderBullet = bullet => {
   return parse(bullet, {
-    replace: (domNode) => {
-      if (domNode.name === 'a') {
-        return (<LinkWithBoxArrow href={domNode.attribs.href}>
-          {domToReact(domNode.children)}
-        </LinkWithBoxArrow>)
+    replace: domNode => {
+      if (domNode.name === "a") {
+        return (
+          <LinkWithBoxArrow href={domNode.attribs.href}>
+            {domToReact(domNode.children)}
+          </LinkWithBoxArrow>
+        );
       }
     }
   });
 };
 
-const Job = (props) => {
+const Job = props => {
   const {
     bullets,
     company,
@@ -22,7 +24,7 @@ const Job = (props) => {
     startDatePretty,
     summary,
     team,
-    title,
+    title
   } = props;
   return (
     <>
@@ -43,17 +45,19 @@ const Job = (props) => {
           margin-right: 20px;
           height: auto;
           flex: 0 0 5.5em;
-          border-right: ${startDatePretty === "Now" ? '' : '3px solid #D0D0D0'};
+          border-right: ${startDatePretty === "Now" ? "" : "3px solid #D0D0D0"};
         }
 
         time {
-          font-size: .85em;
+          font-size: 0.85em;
+          margin-left: auto;
+          margin-right: 16px;
         }
 
         .job_waypoint {
           width: 7px;
           border-radius: 50%;
-          background-color: #67A3E8;
+          background-color: #67a3e8;
           border: 1px solid #ffffff;
           height: 7px;
         }
@@ -86,7 +90,7 @@ const Job = (props) => {
         }
 
         .job_metadata p {
-          margin: .2em 0;
+          margin: 0.2em 0;
         }
 
         .job_content {
@@ -109,7 +113,7 @@ const Job = (props) => {
         <div className="job_start_date">
           <div className="text_and_waypoint">
             <time dateTime={startDate}>{startDatePretty}</time>
-            <div className="job_waypoint"/>
+            <div className="job_waypoint" />
           </div>
         </div>
         <div className="job_metadata_and_content_wrapper">
@@ -120,19 +124,13 @@ const Job = (props) => {
             <p>{location}</p>
           </div>
           <div className="job_content">
-            <p>
-              {summary}
-            </p>
+            <p>{summary}</p>
             <ul>
               {bullets.map((bullet, index) => (
-                <li
-                  key={index}
-                >
-                  {renderBullet(bullet)}
-                </li>
-                ))}
-              </ul>
-            </div>
+                <li key={index}>{renderBullet(bullet)}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
     </>
