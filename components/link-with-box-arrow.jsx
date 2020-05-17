@@ -1,10 +1,7 @@
-import IconBoxArrowUpRight from '../components/icon-box-arrow-up-right.jsx';
+import IconBoxArrowUpRight from "../components/icon-box-arrow-up-right.jsx";
 
-const LinkWithBoxArrow = (props) => {
-  const {
-    children,
-    href,
-  } = props;
+const LinkWithBoxArrow = props => {
+  const { children, href } = props;
 
   return (
     <>
@@ -20,12 +17,14 @@ const LinkWithBoxArrow = (props) => {
 
         .content_wrapper {
           border-bottom: 1px solid transparent;
+          color: #338df4;
           text-decoration: none;
           transition: border-bottom 160ms, filter 160ms;
         }
 
         .content_wrapper:visited {
-          color: #303030;
+          color: #338df4;
+          opacity: 0.8;
         }
 
         .arrow_wrapper {
@@ -51,7 +50,7 @@ const LinkWithBoxArrow = (props) => {
           rel="nooppener noreferrer"
           target="_blank"
         >
-          <IconBoxArrowUpRight color="#303030"/>
+          <IconBoxArrowUpRight color="#303030" />
         </a>
       </span>
     </>
