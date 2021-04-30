@@ -2,7 +2,7 @@ import fetch from "isomorphic-unfetch";
 import Head from "next/head";
 import Job from "../components/job.jsx";
 
-const Resume = props => {
+const Resume = (props) => {
   const { resumeProps } = props;
 
   return (
@@ -11,6 +11,12 @@ const Resume = props => {
         body {
           font-family: "Lato", sans-serif;
         }
+        @media screen {
+          body {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+          }
+        }
         @media print {
           body {
             -webkit-print-color-adjust: exact;
@@ -18,6 +24,18 @@ const Resume = props => {
         }
       `}</style>
       <style jsx>{`
+        @media screen {
+          .resume {
+            border-radius: 4px;
+            overflow: hidden;
+            background: #f0f0f0;
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 1200px;
+            box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.1);
+          }
+        }
+
         * {
           box-sizing: border-box;
         }
@@ -75,24 +93,26 @@ const Resume = props => {
           rel="stylesheet"
         />
       </Head>
-      <header>
-        <h1>Dave Cole</h1>
-        <address>
-          <a href="https://dav.ec/ole">dav.ec/ole</a>
-          <a href="tel:2039131776">203-913-1776</a>
-          <a href="mailto:mrdavidjcole@gmail.com">mrdavidjcole@gmail.com</a>
-        </address>
-      </header>
-      <main>
-        <section>
-          <h2>Professional Experience</h2>
-          <div className="jobs">
-            {resumeProps.jobs.map((jobProps, index) => (
-              <Job {...jobProps} key={index} />
-            ))}
-          </div>
-        </section>
-      </main>
+      <div className="resume">
+        <header>
+          <h1>Dave Cole</h1>
+          <address>
+            <a href="https://dav.ec/ole">dav.ec/ole</a>
+            <a href="tel:2039131776">203-913-1776</a>
+            <a href="mailto:mrdavidjcole@gmail.com">mrdavidjcole@gmail.com</a>
+          </address>
+        </header>
+        <main>
+          <section>
+            <h2>Professional Experience</h2>
+            <div className="jobs">
+              {resumeProps.jobs.map((jobProps, index) => (
+                <Job {...jobProps} key={index} />
+              ))}
+            </div>
+          </section>
+        </main>
+      </div>
     </>
   );
 };
