@@ -1,4 +1,4 @@
-export default (props) => {
+const TwitterLogo = props => {
   const { style, foregroundColor } = props;
   return (
     <svg
@@ -13,3 +13,5 @@ export default (props) => {
     </svg>
   );
 };
+
+export default TwitterLogo;

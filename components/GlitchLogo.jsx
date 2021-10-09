@@ -1,4 +1,4 @@
-export default (props) => {
+const GlitchLogo = props => {
   const { style, foregroundColor, backgroundColor } = props;
   return (
     <svg
@@ -27,3 +27,5 @@ export default (props) => {
     </svg>
   );
 };
+
+export default GlitchLogo;

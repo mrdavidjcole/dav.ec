@@ -1,4 +1,4 @@
-export default (props) => {
+const InstagramLogo = props => {
   const { style, backgroundColor, foregroundColor } = props;
   return (
       <svg
@@ -14,3 +14,5 @@ export default (props) => {
     </svg>
   );
 };
+
+export default InstagramLogo;
