@@ -13,13 +13,12 @@ export default (props) => {
   const { themeName, foregroundColor, mildShadowColor, strongShadowColor } = getTheme();
 
   const PRIMARY_TITLES = [
+    'Dad',
     'Software engineer',
     'Dog enthusiast',
-    'Decent gardener',
     'Connecticutian',
     'Your friend',
-    'Wistian',
-    'Gosh darned millienial',
+    'Eng @ Kenchi',
     'Pixel-pusher',
     'Web accessibifier',
     'Owner of too many domain names',
@@ -31,8 +30,6 @@ export default (props) => {
     ' and self-aware amalgamation of stardust',
     ' and adequate debugger',
     ' and convincing humanoid Slack bot',
-    ' and aspiring lawn care professional',
-    ' and amateur barista',
     ' and maker of snappy web interfaces',
     ', with support from and endless thanks to my loving wife',
     ', working to make things right',
